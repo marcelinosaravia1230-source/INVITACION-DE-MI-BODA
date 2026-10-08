@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- =========================================================
+         01. CONFIGURACIÓN GENERAL
+         AQUÍ PUEDES CAMBIAR:
+         - Título que aparece en la pestaña
+         - Color del navegador en celular
+    ========================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#23362c"
+    >
+
+    <title>
+        Nuestra Boda | Santos & Gladys
+    </title>
+
+
+    <!-- =========================================================
+         FUENTES DE GOOGLE
+         NO NECESITAS MODIFICAR ESTO
+    ========================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================================
+         ARCHIVO DE DISEÑO
+         TODO EL DISEÑO ESTÁ EN:
+         css/estilos.css
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/estilos.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =============================================================
+     02. EFECTOS DEL FONDO
+     NO NECESITAS MODIFICAR ESTA PARTE
+============================================================= -->
+
+<div class="ambient">
+
+    <div class="glow g1"></div>
+
+    <div class="glow g2"></div>
+
+    <!-- Aquí JavaScript crea los pétalos -->
+    <div id="petalos"></div>
+
+</div>
+
+
+
+<!-- =============================================================
+     03. MÚSICA
+     
+     COLOCA TU CANCIÓN EN:
+     musica/cancion.mp3
+============================================================= -->
+
+<audio
+    id="audio"
+    autoplay
+    loop
+    preload="auto"
+>
+    <source
+        src="musica/cancion.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<!-- BOTÓN FLOTANTE DE MÚSICA -->
+
+<button
+    id="musica"
+    class="musica"
+    type="button"
+    aria-label="Música"
+>
+    <span>♪</span>
+</button>
+
+
+
+<!-- =============================================================
+     04. BARRA SUPERIOR DE PROGRESO
+     MUESTRA CUÁNTO FALTA PARA TERMINAR LA INVITACIÓN
+============================================================= -->
+
+<div class="progreso">
+
+    <span id="barra"></span>
+
+</div>
+
+
+
+<!-- =============================================================
+     COMIENZO DE TODA LA INVITACIÓN
+============================================================= -->
+
+<main id="app">
+
+
+
+<!-- =============================================================
+     05. PANTALLA 1
+     SOBRE DE ENTRADA
+
+     AQUÍ CAMBIAS:
+     - Santos
+     - Gladys
+     - Iniciales S & G
+     - Fecha 21 · 11 · 2026
+
+     data-paso="0" = primera pantalla
+============================================================= -->
+
+<section
+    class="pantalla activa portada"
+    data-paso="0"
+>
+
+
+    <!-- DECORACIÓN -->
+
+    <div class="ornamento o1">
+        ❦
+    </div>
+
+
+    <div class="contenido entrada">
+
+
+        <!-- TEXTO ARRIBA DEL SOBRE -->
+
+        <p class="eyebrow">
+            Una invitación hecha con amor
+        </p>
+
+
+
+        <!-- =====================================================
+             SOBRE
+        ====================================================== -->
+
+        <div class="sobre-wrap">
+
+
+            <div
+                class="sobre"
+                id="sobre"
+            >
+
+
+                <!-- =============================================
+                     CARTA QUE SALE DEL SOBRE
+
+                     CAMBIA:
+                     Santos
+                     Gladys
+                     fecha
+                ============================================== -->
+
+                <div class="carta">
+
+                    <em>
+                        Nos casamos
+                    </em>
+
+
+                    <strong>
+                        S & G
+                    </strong>
+
+
+                    <small>
+                        21 · 11 · 2026
+                    </small>
+
+                </div>
+
+
+
+                <!-- CUERPO DEL SOBRE -->
+
+                <div class="cuerpo"></div>
+
+
+
+                <!-- SOLAPA DEL SOBRE -->
+
+                <div class="solapa"></div>
+
+
+
+                <!-- =============================================
+                     SELLO
+
+                     CAMBIA LAS INICIALES AQUÍ
+                ============================================== -->
+
+                <div class="sello">
+
+                    S
+
+                    <span>
+                        &
+                    </span>
+
+                    G
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TEXTO PARA ABRIR -->
+
+        <h2 class="toque">
+
+            Toca el sello para descubrir
+            nuestra historia
+
+        </h2>
+
+
+        <div class="flecha">
+            ⌄
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     06. PANTALLA 2
+     PRESENTACIÓN DE LOS NOVIOS
+
+     AQUÍ CAMBIAS:
+     - Santos
+     - Gladys
+     - Fecha
+     - Frase
+============================================================= -->
+
+<section
+    class="pantalla hero"
+    data-paso="1"
+>
+
+
+    <div class="marco"></div>
+
+
+    <div class="contenido">
+
+
+        <p class="eyebrow anim a1">
+
+            Nuestro sí para toda la vida
+
+        </p>
+
+
+
+        <!-- NOMBRES -->
+
+        <h1 class="nombres anim a2">
+
+            <span>
+                Santos
+            </span>
+
+
+            <i>
+                &
+            </i>
+
+
+            <span>
+                Gladys
+            </span>
+
+        </h1>
+
+
+
+        <!-- SEPARADOR -->
+
+        <div class="linea anim a3">
+
+            <b></b>
+
+            <span>
+                ♡
+            </span>
+
+            <b></b>
+
+        </div>
+
+
+
+        <!-- FECHA -->
+
+        <p class="fechaGrande anim a4">
+
+            21 · NOVIEMBRE · 2026
+
+        </p>
+
+
+
+        <!-- FRASE -->
+
+        <p class="frase anim a5">
+
+            Hay momentos en la vida que son
+            especiales por sí solos, pero compartirlos
+            con las personas que queremos los vuelve
+            inolvidables.
+
+        </p>
+
+
+
+        <!-- BOTÓN SIGUIENTE -->
+
+        <button
+            class="siguiente btn-lujo anim a6"
+        >
+
+            Descubrir la invitación
+
+            <span>
+                →
+            </span>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     07. PANTALLA 3
+     PADRES DE LOS NOVIOS
+
+     AQUÍ CAMBIAS SOLAMENTE LOS NOMBRES
+============================================================= -->
+
+<section
+    class="pantalla crema familia"
+    data-paso="2"
+>
+
+
+    <!-- DECORACIONES -->
+
+    <div class="hoja h1"></div>
+
+    <div class="hoja h2"></div>
+
+
+
+    <div class="contenido ancho">
+
+
+        <span class="script anim a1">
+
+            Con la bendición de Dios
+            y nuestras familias
+
+        </span>
+
+
+
+        <h2 class="titulo anim a2">
+
+            Nuestros padres
+
+        </h2>
+
+
+
+        <div class="divisor anim a3">
+            ✦
+        </div>
+
+
+
+        <div class="dos">
+
+
+            <!-- =============================================
+                 PADRES DEL NOVIO
+            ============================================== -->
+
+            <article
+                class="card-glass anim izquierda"
+            >
+
+
+                <small>
+                    PADRES DEL NOVIO
+                </small>
+
+
+                <div class="mini">
+                    ❦
+                </div>
+
+
+                <h3>
+                    Teófilo Fernández Castro
+                </h3>
+
+
+                <h3>
+                    Susana Ocampo
+                </h3>
+
+
+            </article>
+
+
+
+            <!-- =============================================
+                 PADRES DE LA NOVIA
+            ============================================== -->
+
+            <article
+                class="card-glass anim derecha"
+            >
+
+
+                <small>
+                    PADRES DE LA NOVIA
+                </small>
+
+
+                <div class="mini">
+                    ❦
+                </div>
+
+
+                <h3>
+
+                    Mario Olmedo Aramayo
+
+                    <sup>
+                        †
+                    </sup>
+
+                </h3>
+
+
+                <h3>
+                    Norma Aramayo Martínez
+                </h3>
+
+
+            </article>
+
+
+        </div>
+
+
+
+        <!-- NAVEGACIÓN -->
+
+        <div class="nav anim a6">
+
+
+            <button class="anterior">
+
+                ←
+
+            </button>
+
+
+            <button class="siguiente btn-lujo">
+
+                Continuar
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     08. PANTALLA 4
+     FECHA + CUENTA REGRESIVA
+
+     IMPORTANTE:
+
+     AQUÍ SOLO CAMBIAS LA FECHA QUE SE VE.
+
+     LA FECHA REAL DEL CONTADOR SE CAMBIA
+     EN:
+
+     js/script.js
+============================================================= -->
+
+<section
+    class="pantalla verde fecha"
+    data-paso="3"
+>
+
+
+    <div class="estrellas"></div>
+
+
+    <div class="contenido">
+
+
+        <span class="script claro anim a1">
+
+            Guarda la fecha
+
+        </span>
+
+
+
+        <h2 class="titulo blanco anim a2">
+
+            Cada segundo nos acerca
+
+        </h2>
+
+
+
+        <!-- FECHA -->
+
+        <p class="fechaGrande dorado anim a3">
+
+            Sábado · 21 · 11 · 2026
+
+        </p>
+
+
+
+        <!-- =====================================================
+             CONTADOR
+             NO CAMBIES LOS id
+        ====================================================== -->
+
+        <div class="contador anim a4">
+
+
+            <!-- DÍAS -->
+
+            <div>
+
+                <b id="dias">
+                    00
+                </b>
+
+                <span>
+                    Días
+                </span>
+
+            </div>
+
+
+            <i>:</i>
+
+
+            <!-- HORAS -->
+
+            <div>
+
+                <b id="horas">
+                    00
+                </b>
+
+                <span>
+                    Horas
+                </span>
+
+            </div>
+
+
+            <i>:</i>
+
+
+            <!-- MINUTOS -->
+
+            <div>
+
+                <b id="minutos">
+                    00
+                </b>
+
+                <span>
+                    Min
+                </span>
+
+            </div>
+
+
+            <i>:</i>
+
+
+            <!-- SEGUNDOS -->
+
+            <div>
+
+                <b id="segundos">
+                    00
+                </b>
+
+                <span>
+                    Seg
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- NAVEGACIÓN -->
+
+        <div class="nav anim a6">
+
+
+            <button class="anterior">
+                ←
+            </button>
+
+
+            <button
+                class="siguiente btn-lujo claro-btn"
+            >
+
+                Ver ceremonia
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     09. PANTALLA 5
+     CEREMONIA
+
+     AQUÍ CAMBIAS:
+     - Hora
+     - Iglesia
+     - Dirección
+     - Google Maps
+============================================================= -->
+
+<section
+    class="pantalla foto iglesia"
+    data-paso="4"
+>
+
+
+    <div class="overlay"></div>
+
+
+    <div
+        class="contenido tarjeta-lujo anim zoom"
+    >
+
+
+        <div class="icono-medalla">
+            ⛪
+        </div>
+
+
+        <span class="script">
+
+            El gran momento llego
+
+        </span>
+
+
+        <h2 class="titulo">
+
+            Ceremonia
+
+        </h2>
+
+
+        <div class="divisor">
+            ✦
+        </div>
+
+
+
+        <!-- HORA -->
+
+        <p class="hora-evento">
+
+            14:00 Hrs.
+
+        </p>
+
+
+
+        <!-- IGLESIA -->
+
+        <p>
+
+            <b>
+                Iglesia Evangélica Metodista
+                en Bolivia
+            </b>
+
+        </p>
+
+
+
+        <!-- DIRECCIÓN -->
+
+        <p>
+
+            Barrio Villa Juárez ·
+            Calle 6 de Agosto
+
+        </p>
+
+
+
+        <!-- =============================================
+             GOOGLE MAPS
+
+             REEMPLAZA:
+             https://maps.google.com/
+
+             POR EL ENLACE REAL DEL LUGAR
+        ============================================== -->
+
+        <a
+            class="btn-lujo"
+            href="https://maps.app.goo.gl/kRCb6CUguQXpUepJ7/"
+            target="_blank"
+            rel="noopener"
+        >
+
+            Ver ubicación ↗
+
+        </a>
+
+
+
+        <!-- NAVEGACIÓN -->
+
+        <div class="nav">
+
+
+            <button class="anterior">
+                ←
+            </button>
+
+
+            <button class="siguiente btn-lujo">
+
+                Ir a la recepción
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     10. PANTALLA 6
+     RECEPCIÓN
+
+     AQUÍ CAMBIAS:
+     - Nombre del salón
+     - Dirección
+     - Google Maps
+============================================================= -->
+
+<section
+    class="pantalla foto recepcion"
+    data-paso="5"
+>
+
+
+    <div class="overlay"></div>
+
+
+    <div
+        class="contenido tarjeta-lujo anim zoom"
+    >
+
+
+        <div class="icono-medalla">
+            🥂
+        </div>
+
+
+        <span class="script">
+
+            Después del sí, celebramos
+
+        </span>
+
+
+        <h2 class="titulo">
+
+            Recepción
+
+        </h2>
+
+
+        <div class="divisor">
+            ✦
+        </div>
+
+
+
+        <p>
+            Después de la ceremonia
+        </p>
+
+
+
+        <!-- SALÓN -->
+
+        <p class="hora-evento">
+
+            Salón de Eventos “La Perla”
+
+        </p>
+
+
+
+        <!-- DIRECCIÓN -->
+
+        <p>
+
+            Zona San Antonio ·
+            Calle Hernando Siles
+
+        </p>
+
+
+
+        <!-- GOOGLE MAPS -->
+
+        <a
+            class="btn-lujo"
+            href="https://maps.app.goo.gl/dboNLpAEzYqUtXdL6/"
+            target="_blank"
+            rel="noopener"
+        >
+
+            Ver ubicación ↗
+
+        </a>
+
+
+
+        <div class="nav">
+
+
+            <button class="anterior">
+                ←
+            </button>
+
+
+            <button class="siguiente btn-lujo">
+
+                Conoce a nuestros padrinos
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     11. PANTALLA 7
+     PADRINOS
+
+     CADA <article> ES UNA TARJETA.
+
+     PARA CAMBIAR UN PADRINO:
+     MODIFICA ÚNICAMENTE EL TEXTO ENTRE <b>...</b>
+
+     PARA CAMBIAR EL TIPO:
+     MODIFICA <small>...</small>
+============================================================= -->
+
+<section
+    class="pantalla crema padrinos-p"
+    data-paso="6"
+>
+
+
+    <div class="contenido superancho">
+
+
+        <span class="script anim a1">
+
+            Personas que hacen este día
+            aún más especial
+
+        </span>
+
+
+        <h2 class="titulo anim a2">
+
+            Nuestros padrinos
+
+        </h2>
+
+
+
+        <div class="padrinos anim a3">
+
+
+            <!-- PADRINOS DE MATRIMONIO -->
+
+            <article>
+
+                <span>💍</span>
+
+                <small>
+                    MATRIMONIO
+                </small>
+
+                <b>
+                    Omar Cecilio Aramayo Ramos
+                </b>
+
+                <b>
+                    Cintia Jesusa Martínez Castro
+                </b>
+
+            </article>
+
+
+
+            <!-- PADRINOS DE ANILLO -->
+
+            <article>
+
+                <span>💎</span>
+
+                <small>
+                    ANILLO
+                </small>
+
+                <b>
+                    Juan Tintaya Limachi
+                </b>
+
+                <b>
+                    Sabina Mamani Palomino
+                </b>
+
+            </article>
+
+
+
+            <!-- PADRINOS DE TORTA -->
+
+            <article>
+
+                <span>🎂</span>
+
+                <small>
+                    TORTA
+                </small>
+
+                <b>
+                    Santusa Olmedo Aramayo
+                </b>
+
+                <b>
+                    Santos Julián Mamani Choque
+                </b>
+
+            </article>
+
+
+
+            <!-- PADRINO DE MINISTERIO -->
+
+            <article>
+
+                <span>⛪</span>
+
+                <small>
+                    MINISTERIO
+                </small>
+
+                <b>
+                    Julián Aramayo Martínez
+                </b>
+
+            </article>
+
+
+
+            <!-- SEGUNDA TARJETA DE TORTA -->
+
+            <article>
+
+                <span>🎀</span>
+
+                <small>
+                    TORTA
+                </small>
+
+                <b>
+                    Luciano Ariel Mamani Rivera
+                </b>
+
+                <b>
+                    Haydee Vanesa Fernández Ocampo
+                </b>
+
+            </article>
+
+
+
+            <!-- PADRINOS DE LOCAL -->
+
+            <article>
+
+                <span>✨</span>
+
+                <small>
+                    LOCAL
+                </small>
+
+                <b>
+                    Ceferino Flores Martínez
+                </b>
+
+                <b>
+                    Cristina Choque
+                </b>
+
+            </article>
+
+
+
+            <!-- PADRINOS DE RECUERDOS -->
+
+            <article>
+
+                <span>📸</span>
+
+                <small>
+                    RECUERDOS
+                </small>
+
+                <b>
+                    Elsa Aguilar
+                </b>
+
+            </article>
+
+
+
+            <!-- PADRINOS DE RECUERDITOS -->
+
+            <article>
+
+                <span>🎁</span>
+
+                <small>
+                    RECUERDITOS
+                </small>
+
+                <b>
+                    Lidia Fernández Ocampo
+                </b>
+
+            </article>
+
+
+
+            <!-- FOTOGRAFÍA -->
+
+            <article>
+
+                <span>🎥</span>
+
+                <small>
+                    FOTOGRAFÍA Y FILMACIÓN
+                </small>
+
+                <b>
+                    Álvaro Olmedo Aramayo
+                </b>
+
+                <b>
+                    Concepción Ayllón Mamani
+                </b>
+
+            </article>
+
+
+        </div>
+
+
+
+        <div class="nav anim a6">
+
+
+            <button class="anterior">
+                ←
+            </button>
+
+
+            <button class="siguiente btn-lujo">
+
+                Continuar
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     12. PANTALLA 8
+     CÓDIGO DE VESTIMENTA
+
+     AQUÍ PUEDES CAMBIAR:
+     FORMAL
+     por:
+     ELEGANTE
+     SEMIFORMAL
+     CASUAL ELEGANTE
+     etc.
+============================================================= -->
+
+<section
+    class="pantalla foto dress"
+    data-paso="7"
+>
+
+
+    <div class="overlay"></div>
+
+
+    <div class="contenido anim zoom">
+
+
+        <span class="script claro">
+
+            Elegancia para una noche inolvidable
+
+        </span>
+
+
+        <h2 class="titulo blanco">
+
+            Código de vestimenta
+
+        </h2>
+
+
+
+        <div class="dress-icons">
+
+            ♔　👗　🤵　♔
+
+        </div>
+
+
+
+        <h3>
+
+            FORMAL
+
+        </h3>
+
+
+
+        <p>
+
+            Queremos que luzcas increíble
+            y disfrutes junto a nosotros
+            este momento tan especial.
+
+        </p>
+
+
+
+        <div class="nav">
+
+
+            <button class="anterior">
+                ←
+            </button>
+
+
+            <button
+                class="siguiente btn-lujo claro-btn"
+            >
+
+                Nuestros recuerdos
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     13. PANTALLA 9
+     GALERÍA
+
+     PARA USAR FOTOS LOCALES:
+
+     crea:
+
+     img/foto1.jpg
+     img/foto2.jpg
+     img/foto3.jpg
+
+     y reemplaza los enlaces de Internet por:
+
+     src="img/foto1.jpg"
+============================================================= -->
+
+<section
+    class="pantalla crema galeria"
+    data-paso="8"
+>
+
+
+    <div class="contenido superancho">
+
+
+        <span class="script anim a1">
+
+            Nuestra historia en imágenes
+
+        </span>
+
+
+        <h2 class="titulo anim a2">
+
+            Momentos para siempre
+
+        </h2>
+
+
+
+        <div class="fotos anim a3">
+
+
+            <!-- FOTO 1 -->
+
+            <figure>
+
+                <img
+                    src="https://cdn.phototourl.com/member/2026-10-08-4c526b69-10e8-4cbe-93c1-0828660f54f1.jpg"
+                    alt="Santos y Gladys - Amor"
+                >
+
+                <figcaption>
+                    Amor
+                </figcaption>
+
+            </figure>
+
+
+
+            <!-- FOTO 2 -->
+
+            <figure>
+
+                <img
+                    src="https://cdn.phototourl.com/member/2026-10-08-d8345c7b-f8e4-482f-8ad4-c068b8520357.jpg"
+                    alt="Santos y Gladys - Complicidad"
+                >
+
+                <figcaption>
+                    Complicidad
+                </figcaption>
+
+            </figure>
+
+
+
+            <!-- FOTO 3 -->
+
+            <figure>
+
+                <img
+                    src="https://cdn.phototourl.com/member/2026-10-08-8f38bbec-c8e7-4099-b3c4-59c72be4fe6b.jpg"
+                    alt="Santos y Gladys - Para siempre"
+                >
+
+                <figcaption>
+                    Para siempre
+                </figcaption>
+
+            </figure>
+
+
+        </div>
+
+
+        <div class="nav anim a6">
+
+
+            <button class="anterior">
+                ←
+            </button>
+
+
+            <button class="siguiente btn-lujo">
+
+                Llegar al final
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =============================================================
+     14. PANTALLA 10
+     CONFIRMACIÓN
+
+     AQUÍ CAMBIAS:
+     - Fecha límite
+     - Número WhatsApp
+     - Mensaje
+     - Nombres finales
+
+     NÚMERO ACTUAL:
+     59174245335
+
+     591 = Bolivia
+============================================================= -->
+
+<section
+    class="pantalla final"
+    data-paso="9"
+>
+
+
+    <div class="destellos"></div>
+
+
+    <div class="contenido anim zoom">
+
+
+        <span class="script claro">
+
+            El mejor regalo es tu presencia
+
+        </span>
+
+
+
+        <h2 class="titulo blanco">
+
+            ¿Nos acompañas?
+
+        </h2>
+
+
+
+        <div class="divisor claro-div">
+            ♡
+        </div>
+
+
+
+        <p>
+
+            Estamos preparando este día
+            con muchísimo cariño.
+
+            <br>
+
+            Confirma tu asistencia antes del
+
+            <b>
+                15 de noviembre de 2026.
+            </b>
+
+        </p>
+
+
+
+        <!-- =================================================
+             WHATSAPP
+
+             PARA CAMBIAR EL NÚMERO:
+
+             Busca:
+             59174245335
+
+             y reemplázalo por el número correcto.
+
+             NO PONGAS:
+             +
+             espacios
+             guiones
+        ================================================== -->
+
+        <a
+            class="btn-lujo whatsapp"
+            target="_blank"
+            rel="noopener"
+            href=""
+        >
+
+            Confirmar por WhatsApp ♥
+            
+
+        </a>
+
+
+
+        <!-- FIRMA -->
+
+        <h1 class="firma">
+
+            Santos
+
+            <i>
+                &
+            </i>
+
+            Gladys
+
+        </h1>
+
+
+
+        <p class="gracias">
+
+            Gracias por ser parte
+            de nuestra historia
+
+        </p>
+
+
+
+        <!-- NAVEGACIÓN -->
+
+        <div class="nav">
+
+
+            <button class="anterior">
+                ←
+            </button>
+
+
+            <button
+                id="reiniciar"
+                class="reiniciar"
+            >
+
+                Ver nuevamente ↻
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =============================================================
+     15. INDICADOR DE PANTALLAS
+
+     01 / 10
+
+     JavaScript lo cambia automáticamente.
+
+     NO NECESITAS MODIFICARLO.
+============================================================= -->
+
+<div
+    class="indicador"
+    id="indicador"
+>
+
+    01 / 10
+
+</div>
+
+
+
+<!-- =============================================================
+     16. JAVASCRIPT
+
+     LAS FUNCIONES ESTÁN EN:
+
+     js/script.js
+
+     AHÍ ESTÁN:
+     - Abrir sobre
+     - Pasar página
+     - Volver
+     - Animaciones
+     - Contador
+     - Música
+     - Pétalos
+     - Barra de progreso
+     - Reiniciar invitación
+============================================================= -->
+
+<script src="js/script.js"></script>
+
+
+</body>
+
+</html>

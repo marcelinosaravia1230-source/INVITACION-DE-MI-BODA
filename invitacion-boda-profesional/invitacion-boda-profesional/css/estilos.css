@@ -1,0 +1,1202 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --verde: #1f3326;
+    --verde2: #293b29;
+    --oro: #aa7a26;
+    --oro2: #968a70;
+    --crema: #f8f2e8;
+    --tinta: #6d776f;
+    --blanco: #fff;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Montserrat, sans-serif;
+    color: var(--tinta);
+    background: #cee4d9;
+}
+
+.ambient {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 80;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .13;
+}
+
+.g1 {
+    background: #a5854b;
+    left: -180px;
+    top: -180px;
+}
+
+.g2 {
+    background: #9cc4a8;
+    right: -180px;
+    bottom: -180px;
+}
+
+.pantalla {
+    position: absolute;
+    inset: 0;
+    min-height: 100dvh;
+    padding: 54px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(10%, 0, 0) scale(.96);
+    filter: blur(8px);
+    transition:
+        opacity .8s ease,
+        transform 1s cubic-bezier(.2, .8, .2, 1),
+        filter .8s,
+        visibility .8s;
+    overflow: auto;
+}
+
+.pantalla.activa {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    filter: none;
+    z-index: 10;
+}
+
+.pantalla.saliendo-izq {
+    opacity: 0;
+    transform: translate3d(-12%, 0, 0) scale(1.03);
+    filter: blur(8px);
+    z-index: 9;
+}
+
+.pantalla.saliendo-der {
+    opacity: 0;
+    transform: translate3d(12%, 0, 0) scale(.96);
+    filter: blur(8px);
+    z-index: 9;
+}
+
+.contenido {
+    position: relative;
+    z-index: 3;
+    width: min(760px, 94%);
+}
+
+.ancho {
+    width: min(1050px, 95%);
+}
+
+.superancho {
+    width: min(1200px, 96%);
+}
+
+.crema {
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            #fffdf8 0,
+            #f8f2e8 52%,
+            #eee3d2 100%
+        );
+}
+
+.verde {
+    background:
+        radial-gradient(
+            circle at top,
+            #486351 0,
+            #263b30 58%,
+            #1c2c24 100%
+        );
+
+    color: #fff;
+}
+
+.foto {
+    background-size: cover;
+    background-position: center;
+}
+
+.iglesia {
+    background-image:
+        url('https://images.unsplash.com/photo-1519741347686-c1e331fcb28b?auto=format&fit=crop&w=1800&q=90');
+}
+
+.recepcion {
+    background-image:
+        url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1800&q=90');
+}
+
+.dress {
+    background-image:
+        url('https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1800&q=90');
+
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18, 31, 24, .78),
+            rgba(32, 48, 38, .55),
+            rgba(20, 25, 22, .82)
+        );
+}
+
+.portada {
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #617c68,
+            #2b4034 55%,
+            #1b2a22
+        );
+
+    color: white;
+}
+
+.portada:before,
+.final:before {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(234, 215, 173, .42);
+    pointer-events: none;
+}
+.eyebrow {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: none;
+    color: #f0eeea;
+    opacity: .95;
+    margin-bottom: 50px;
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.sobre-wrap {
+    height: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1300px;
+}
+
+.sobre {
+    width: 350px;
+    height: 225px;
+    position: relative;
+    cursor: pointer;
+    filter: drop-shadow(0 30px 28px rgba(0, 0, 0, .28));
+    transition: transform .4s;
+}
+
+.sobre:hover {
+    transform: translateY(-7px) rotateX(2deg);
+}
+
+.cuerpo {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #eee1c9, #d9c7a7);
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.cuerpo:before,
+.cuerpo:after {
+    content: '';
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    top: 25px;
+    background: #f4ead7;
+    transform: rotate(45deg);
+}
+
+.cuerpo:before {
+    left: -130px;
+}
+
+.cuerpo:after {
+    right: -130px;
+}
+
+.solapa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 175px solid transparent;
+    border-right: 175px solid transparent;
+    border-top: 130px solid #d2bd99;
+    transform-origin: top;
+    z-index: 4;
+    transition: 1s cubic-bezier(.2, .8, .2, 1);
+}
+
+.carta {
+    position: absolute;
+    width: 300px;
+    height: 185px;
+    left: 25px;
+    top: 18px;
+    background: #fffaf0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eadcc2;
+    transition: 1.25s cubic-bezier(.17, .89, .32, 1.35);
+}
+
+.carta:before {
+    content: '';
+    position: absolute;
+    inset: 9px;
+    border: 1px solid #e5d2ad;
+}
+
+.carta em {
+    font: 2rem 'Great Vibes';
+    color: var(--verde);
+}
+
+.carta strong {
+    font: 3.2rem 'Cormorant Garamond';
+    color: var(--oro);
+    font-weight: 500;
+}
+
+.carta small {
+    letter-spacing: 3px;
+}
+
+.sello {
+    position: absolute;
+    z-index: 6;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #d9bd7e,
+            #9d783e
+        );
+
+    left: 141px;
+    top: 91px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font: 1.35rem 'Cormorant Garamond';
+
+    box-shadow:
+        inset 0 0 0 4px rgba(255, 255, 255, .14),
+        0 8px 20px #0005;
+
+    transition: .65s;
+}
+
+.sello span {
+    font-size: .8rem;
+    margin: 0 2px;
+}
+
+.sobre.abierto .solapa {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.sobre.abierto .carta {
+    transform: translateY(-135px) scale(1.03);
+}
+
+.sobre.abierto .sello {
+    transform: scale(0) rotate(120deg);
+    opacity: 0;
+}
+
+.toque {
+    font: 1.25rem 'Cormorant Garamond';
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    animation: pulse 2s infinite;
+}
+
+.flecha {
+    font-size: 2rem;
+    margin-top: 12px;
+    animation: bob 1.5s infinite;
+}
+
+
+/* =========================
+   HERO / NOVIOS
+========================= */
+
+.hero {
+    color: #fff;
+
+    background:
+        linear-gradient(
+            rgba(22, 36, 28, .42),
+            rgba(18, 29, 23, .75)
+        ),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1900&q=92')
+        center / cover;
+}
+
+.marco {
+    position: absolute;
+    inset: 20px;
+    border: 1px solid #fff7;
+}
+
+.marco:before,
+.marco:after {
+    content: '❦';
+    position: absolute;
+    color: var(--oro2);
+    font-size: 2rem;
+}
+
+.marco:before {
+    left: 18px;
+    top: 12px;
+}
+
+.marco:after {
+    right: 18px;
+    bottom: 12px;
+    transform: rotate(180deg);
+}
+
+.nombres {
+    font: clamp(4.7rem, 13vw, 9rem) 'Great Vibes';
+    font-weight: 400;
+    line-height: .72;
+    text-shadow: 0 10px 35px #0006;
+}
+
+.nombres span {
+    display: block;
+}
+
+.nombres i {
+    display: block;
+    font: 2rem 'Cormorant Garamond';
+    color: var(--oro2);
+    margin: 20px;
+}
+
+.fechaGrande {
+    font: 1.25rem 'Cormorant Garamond';
+    letter-spacing: 5px;
+    margin: 25px 0;
+}
+
+.frase {
+    max-width: 650px;
+    margin: 25px auto;
+    line-height: 1.9;
+    font-family: 'Cormorant Garamond';
+    font-size: 1.25rem;
+}
+
+.linea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 15px;
+}
+
+.linea b {
+    height: 1px;
+    width: 70px;
+    background: var(--oro2);
+}
+
+.linea span {
+    color: var(--oro2);
+}
+
+.script {
+    font: clamp(2.7rem, 7vw, 4.5rem) 'Great Vibes';
+    color: var(--oro);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.titulo {
+    font: clamp(2.2rem, 6vw, 4rem) 'Cormorant Garamond';
+    color: var(--verde);
+    font-weight: 600;
+}
+
+.blanco,
+.claro {
+    color: #fff;
+}
+
+.dorado {
+    color: var(--oro2);
+}
+
+.divisor {
+    color: var(--oro);
+    font-size: 1.3rem;
+    margin: 22px;
+}
+
+
+/* =========================
+   PADRES
+========================= */
+
+.dos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+    margin: 38px 0;
+}
+
+.card-glass {
+    padding: 45px 28px;
+    background: #fff9;
+    border: 1px solid #d8c7a7;
+    box-shadow: 0 22px 60px #4b3d2914;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-glass:before {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border: 1px solid #dbc79f;
+    border-radius: 50%;
+    left: -45px;
+    top: -45px;
+}
+
+.card-glass small,
+.padrinos small {
+    display: block;
+    letter-spacing: 3px;
+    color: var(--oro);
+    font-size: .65rem;
+    margin-bottom: 18px;
+}
+
+.card-glass h3 {
+    font: 1.6rem 'Cormorant Garamond';
+    margin: 10px;
+}
+
+.mini {
+    color: var(--oro);
+    font-size: 1.4rem;
+}
+
+.hoja {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 1px solid #cdb78355;
+    border-radius: 70% 0 70% 0;
+}
+
+.h1 {
+    left: -130px;
+    top: -90px;
+    transform: rotate(30deg);
+}
+
+.h2 {
+    right: -130px;
+    bottom: -90px;
+    transform: rotate(210deg);
+}
+
+
+/* =========================
+   CONTADOR
+========================= */
+
+.contador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 48px auto;
+}
+
+.contador div {
+    width: 125px;
+    height: 135px;
+    border: 1px solid #fff3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff1;
+    backdrop-filter: blur(4px);
+    transition: .4s;
+}
+
+.contador div:hover {
+    transform: translateY(-8px);
+    border-color: var(--oro);
+}
+
+.contador b {
+    font: 3.4rem 'Cormorant Garamond';
+    color: var(--oro2);
+}
+
+.contador span {
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contador i {
+    font-style: normal;
+    color: var(--oro);
+    font-size: 2rem;
+}
+
+
+/* =========================
+   TARJETAS DE EVENTOS
+========================= */
+
+.tarjeta-lujo {
+    background: rgba(255, 252, 245, .93);
+    padding: 50px 45px;
+    color: var(--tinta);
+    border: 1px solid #e5d2ad;
+    box-shadow: 0 30px 80px #0005;
+    backdrop-filter: blur(12px);
+    max-width: 680px;
+}
+
+.tarjeta-lujo:before {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border: 1px solid #c6a36566;
+    pointer-events: none;
+}
+
+.tarjeta-lujo p {
+    margin: 10px;
+    line-height: 1.6;
+}
+
+.icono-medalla {
+    width: 76px;
+    height: 76px;
+    margin: -88px auto 18px;
+    border-radius: 50%;
+    background: var(--verde);
+    border: 4px solid var(--crema);
+    box-shadow: 0 0 0 1px var(--oro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.hora-evento {
+    font: 1.8rem 'Cormorant Garamond';
+    color: var(--verde);
+    font-weight: 600;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn-lujo {
+    border: 1px solid var(--oro);
+    background: var(--oro);
+    color: #fff;
+    padding: 14px 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .66rem;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: .35s;
+    margin: 14px 4px;
+}
+
+.btn-lujo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px #8c6c3540;
+    background: #b38f51;
+}
+
+.claro-btn {
+    background: transparent;
+    border-color: var(--oro2);
+    color: var(--oro2);
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.anterior,
+.reiniciar {
+    border: 1px solid var(--oro);
+    background: transparent;
+    color: var(--oro);
+    padding: 13px 18px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.anterior:hover,
+.reiniciar:hover {
+    background: var(--oro);
+    color: #fff;
+}
+
+
+/* =========================
+   PADRINOS
+========================= */
+
+.padrinos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    margin-top: 30px;
+}
+
+.padrinos article {
+    min-height: 155px;
+    padding: 23px 15px;
+    background: #fff;
+    border: 1px solid #dfd1b7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .4s;
+    box-shadow: 0 8px 25px #0000000a;
+}
+
+.padrinos article:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 18px 40px #6c573521;
+    border-color: var(--oro);
+}
+
+.padrinos article > span {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.padrinos b {
+    font: 1.08rem 'Cormorant Garamond';
+    margin: 2px;
+}
+
+
+/* =========================
+   VESTIMENTA
+========================= */
+
+.dress h3 {
+    font: 2rem 'Cormorant Garamond';
+    color: var(--oro2);
+    letter-spacing: 5px;
+}
+
+.dress p {
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.8;
+}
+
+.dress-icons {
+    font-size: 2.5rem;
+    margin: 28px;
+}
+
+
+/* =========================
+   GALERÍA
+========================= */
+
+.galeria .fotos {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr 1.2fr;
+    gap: 12px;
+    margin: 32px 0;
+}
+
+.fotos figure {
+    height: 410px;
+    overflow: hidden;
+    position: relative;
+}
+
+.fotos figure:nth-child(2) {
+    height: 350px;
+    margin-top: 30px;
+}
+
+.fotos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s;
+}
+
+.fotos figure:hover img {
+    transform: scale(1.08);
+}
+
+.fotos figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 10px 15px;
+    background: linear-gradient(transparent, #0009);
+    color: white;
+    font: 1.5rem 'Great Vibes';
+}
+
+.nota {
+    font-size: .75rem;
+    color: #8a8175;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    background:
+        radial-gradient(
+            circle at top,
+            #526c59,
+            #263b30 58%,
+            #17231d
+        );
+
+    color: #fff;
+}
+
+.final p {
+    line-height: 1.8;
+}
+
+.whatsapp {
+    background: #fff;
+    color: var(--verde);
+    border-color: #fff;
+    margin: 28px;
+}
+
+.firma {
+    font: clamp(4rem, 11vw, 7rem) 'Great Vibes';
+    font-weight: 400;
+    color: var(--oro2);
+    margin-top: 20px;
+}
+
+.firma i {
+    font: 1.6rem 'Cormorant Garamond';
+    margin: 0 10px;
+}
+
+.gracias {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: .65rem;
+}
+
+.claro-div {
+    color: var(--oro2);
+}
+
+
+/* =========================
+   MÚSICA
+========================= */
+
+.musica {
+    position: fixed;
+    right: 22px;
+    top: 22px;
+    z-index: 100;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid #ead7ad88;
+    background: #263b30cc;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+}
+
+.musica.on {
+    animation: spin 5s linear infinite;
+    box-shadow: 0 0 0 5px #c6a36522;
+}
+
+
+/* =========================
+   PROGRESO
+========================= */
+
+.progreso {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: #fff2;
+    z-index: 100;
+}
+
+.progreso span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--oro);
+    transition: width .8s;
+}
+
+.indicador {
+    position: fixed;
+    left: 25px;
+    bottom: 22px;
+    z-index: 100;
+    color: #fff;
+    font: 1rem 'Cormorant Garamond';
+    letter-spacing: 2px;
+    text-shadow: 0 2px 5px #000;
+}
+
+
+/* =========================
+   PÉTALOS
+========================= */
+
+.petalo {
+    position: fixed;
+    top: -30px;
+    width: 11px;
+    height: 17px;
+    background: linear-gradient(135deg, #fff, #e8cfd0);
+    border-radius: 80% 20% 70% 30%;
+    z-index: 81;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+
+/* =========================
+   ANIMACIONES DE ENTRADA
+========================= */
+
+.pantalla.activa .anim {
+    opacity: 0;
+    animation: reveal .85s forwards;
+}
+
+.pantalla.activa .a1 {
+    animation-delay: .15s;
+}
+
+.pantalla.activa .a2 {
+    animation-delay: .28s;
+}
+
+.pantalla.activa .a3 {
+    animation-delay: .4s;
+}
+
+.pantalla.activa .a4 {
+    animation-delay: .52s;
+}
+
+.pantalla.activa .a5 {
+    animation-delay: .64s;
+}
+
+.pantalla.activa .a6 {
+    animation-delay: .76s;
+}
+
+.pantalla.activa .izquierda {
+    animation-name: leftIn;
+}
+
+.pantalla.activa .derecha {
+    animation-name: rightIn;
+}
+
+.pantalla.activa .zoom {
+    animation-name: zoomIn;
+}
+
+.o1 {
+    position: absolute;
+    color: #fff1;
+    font-size: 18rem;
+    transform: rotate(-20deg);
+}
+
+
+/* =========================
+   KEYFRAMES
+========================= */
+
+@keyframes reveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes leftIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(-70px) rotate(-2deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes rightIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(70px) rotate(2deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes zoomIn {
+
+    from {
+        opacity: 0;
+        transform: scale(.85) translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes pulse {
+
+    50% {
+        opacity: .5;
+    }
+}
+
+@keyframes bob {
+
+    50% {
+        transform: translateY(9px);
+    }
+}
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fall {
+
+    0% {
+        transform:
+            translate(0, -30px)
+            rotate(0);
+    }
+
+    50% {
+        transform:
+            translate(55px, 50vh)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translate(-35px, 110vh)
+            rotate(360deg);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE / CELULAR
+========================= */
+
+@media (max-width: 760px) {
+
+    .pantalla {
+        padding: 65px 14px 45px;
+    }
+
+    .dos,
+    .padrinos {
+        grid-template-columns: 1fr;
+    }
+
+    .padrinos {
+        max-height: 55vh;
+        overflow: auto;
+        padding: 4px;
+    }
+
+    .contador {
+        gap: 5px;
+    }
+
+    .contador div {
+        width: 23%;
+        height: 105px;
+    }
+
+    .contador b {
+        font-size: 2.35rem;
+    }
+
+    .contador i {
+        display: none;
+    }
+
+    .galeria .fotos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .fotos figure,
+    .fotos figure:nth-child(2) {
+        height: 260px;
+        margin: 0;
+    }
+
+    .fotos figure:last-child {
+        grid-column: 1 / 3;
+    }
+
+    .sobre {
+        transform: scale(.86);
+    }
+
+    .sobre:hover {
+        transform:
+            scale(.86)
+            translateY(-5px);
+    }
+
+    .tarjeta-lujo {
+        padding: 42px 22px;
+    }
+
+    .nombres {
+        font-size: 4.8rem;
+    }
+
+    .script {
+        font-size: 2.8rem;
+    }
+
+    .titulo {
+        font-size: 2.3rem;
+    }
+
+    .indicador {
+        font-size: .8rem;
+    }
+
+    .musica {
+        width: 46px;
+        height: 46px;
+    }
+
+    .card-glass {
+        padding: 28px 18px;
+    }
+
+    .familia .dos {
+        gap: 12px;
+    }
+
+    .familia .card-glass h3 {
+        font-size: 1.35rem;
+    }
+}
